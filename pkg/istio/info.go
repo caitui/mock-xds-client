@@ -29,6 +29,7 @@ const (
 	// 工作模式
 	SIGNAL_SERVICE string = "SIGNAL_SERVICE"
 	MULTI_SERVICE  string = "MULTI_SERVICE"
+	REAL_SERVICE   string = "REAL_SERVICE"
 )
 
 // IstioVersion adapt istio version

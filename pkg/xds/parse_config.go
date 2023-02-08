@@ -21,6 +21,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/caitui/mock-xds-client/pkg/utils"
 	"log"
 	"strings"
 	"time"
@@ -44,13 +45,20 @@ func buildCloudInfo() istio.XdsInfo {
 	// 根据service类型来模拟是N个服务  还是 1个服务N个pod
 	serviceType := xdsInfoPatch.Metadata.Fields["SERVICE_TYPE"].GetStringValue()
 	// service node
-	appMockName := "demo-app"
-	if serviceType == istio.MULTI_SERVICE {
-		appMockName = RandomAppName()
+	serviceNode, appMockName := "", "demo-app"
+	if serviceType != istio.REAL_SERVICE {
+		if serviceType == istio.MULTI_SERVICE {
+			appMockName = RandomAppName()
+		}
+		podMockName := RandomPodName(appMockName) + "." + appMockName
+		serviceNode = strings.Join([]string{"sidecar", RandomIp(), podMockName, appMockName}, "~")
+	} else {
+		// 从环境变量获取真实的pod信息
+		podIP := utils.GetDefaultEnv("POD_IP", "")
+		podName := utils.GetDefaultEnv("POD_NAME", "")
+		podNamespace := utils.GetDefaultEnv("POD_NAMESPACE", "")
+		serviceNode = strings.Join([]string{"sidecar", podIP, podName, podNamespace}, "~")
 	}
-
-	podMockName := RandomPodName(appMockName) + "." + appMockName
-	serviceNode := strings.Join([]string{"sidecar", RandomIp(), podMockName, appMockName}, "~")
 
 	if istioType == istio.COMM_ISTIO_TYPE {
 		xdsInfoPatch.ServiceNode = serviceNode

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3518706a-2ee4-44bc-86d6-640f33ae1f61" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/utils/utils.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/istio/info.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/istio/info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/istio/xds.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/istio/xds.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/mockclient/mock_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/mockclient/mock_client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/xds/parse_config.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/xds/parse_config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/xds/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/xds/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
